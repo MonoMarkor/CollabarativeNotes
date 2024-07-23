@@ -1,0 +1,49 @@
+.background{
+  background-color: var(--back);
+  min-height: 80vh;
+  width: 100%;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  overflow-y:hidden;
+}
+
+.accountForm {
+    width: 100%;
+    max-width: 400px;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: var(--spbackground);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .accountForm h2 {
+    text-align: center;
+    color:  var(--text);
+    margin-bottom: 20px;
+  }
+
+  .accountForm mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .accountForm button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .accountForm a {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color:  var(--text);
+    text-decoration: none;
+  }
+
+  .accountForm a:hover {
+    text-decoration: underline;
+  }
+

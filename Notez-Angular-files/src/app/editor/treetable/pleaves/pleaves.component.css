@@ -1,0 +1,16 @@
+a {
+    text-decoration: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+a p{
+    text-decoration: none;
+    color: var(--text);
+
+}
+
+::ng-deep .mat-spinner circle {
+    stroke: #ff4081; /* Custom stroke color */
+}

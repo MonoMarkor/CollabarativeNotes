@@ -1,0 +1,22 @@
+<div class="background" style="background-color: rgb(38, 38, 38)">
+
+<h2 style="color:snow" mat-dialog-title>Share this link</h2>
+<mat-dialog-content class="dialog-content">
+    <mat-form-field class="form-width" >
+        <mat-label >Link:</mat-label>
+        <input matInput
+            class="input-width"
+            type="text"
+            [value]="currentUrl"
+            readonly
+            #urlInput
+        />
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button style="color: black;background-color: white;" (click)="copyLink(urlInput)">Copy Link</button>
+    <button mat-button style="color: white;" [mat-dialog-close] cdkFocusInitial>Close</button>
+</mat-dialog-actions>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="branch">
+    <mat-list>
+        <div mat-subheader>Personal</div>
+        <div class="scrollable">
+            <mat-list-item class="pleaves" *ngFor="let server_file_id of userservice.currentUser.serverFileIds">
+                <app-pleaves 
+                    [server_file_id]="server_file_id"
+                    [fileLocation]="personalFileLocation"
+                ></app-pleaves>
+            </mat-list-item>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        
+            <div mat-subheader class="collabHeader">
+
+                <p>Collabed</p>
+
+                <button class="collabBtn" mat-icon-button matTooltip="Add Group" (click)="openGroupDialog()">
+                <mat-icon>group_add</mat-icon>
+                </button>
+            </div>
+
+
+
+        
+        <div *ngIf="showGleaves" class="scrollable-group" [hidden]="!userservice.isLoggedIn">
+            <mat-list-item *ngFor="let groupId of userservice.currentUser.groupIds">
+                <app-gleaves [groupId]="groupId" ></app-gleaves>
+            </mat-list-item>
+        </div>
+        
+    </mat-list>
+</div>
+

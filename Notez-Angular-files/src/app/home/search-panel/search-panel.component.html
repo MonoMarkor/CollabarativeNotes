@@ -1,0 +1,37 @@
+<div class="searchpanel">
+    <br>
+    <div class="searchControls">
+        <form>
+            <p class="h4">Personal Notes</p>
+            <br>
+            <input type="text"
+            id="search-bar"
+            placeholder="Search for Notes"
+            [(ngModel)]="tosearch"
+            name="searchText"
+            onkeydown="if(event.keyCode === 13) {
+            return false;
+            }"
+            #filter>
+        </form>
+        <br>
+        <a class="addBtn" mat-fab extended routerLink="/editor">
+            <mat-icon >add_box</mat-icon>
+            Add New File
+        </a>
+    </div>
+
+    <br>
+    <section class="results">
+        
+        <app-home-files
+            *ngFor="let serverFileId of userService.currentUser.serverFileIds| sortByDate:'updatedAt'"
+            [server_file_id]="serverFileId"
+            [fileLocation]="personalFileLocation"
+            [searchVal]="tosearch"
+        ></app-home-files>
+
+
+    </section>
+    <br>
+</div>

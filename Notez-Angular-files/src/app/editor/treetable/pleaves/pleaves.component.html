@@ -1,0 +1,6 @@
+<a *ngIf="file.fileName" matListItemTitle
+    [routerLink]="['/editor', file.serverFileId]">
+       <p>
+        {{file.fileName | maxLen}}
+       </p> 
+</a>

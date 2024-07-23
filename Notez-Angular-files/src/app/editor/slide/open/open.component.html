@@ -1,0 +1,32 @@
+
+
+
+
+    <div class="searchpanel">
+        <br>
+        <form>
+            <input type="text"
+            id="search-bar"
+            placeholder="Search for Notes"
+            onkeydown="if(event.keyCode === 13) {
+                return false;
+            }"
+            (keyup)="filterResults(filter.value)"
+            #filter>
+        </form>
+        <br>
+        <section class="results">
+            
+            <!--<app-open-results
+               </app-open-results> *ngFor="let f of filteredFilesList | sortByDate:'updatedAt'"
+                [filesLocation]="f"
+            ></app-open-results>-->
+
+           <a [routerLink]="['/editor']" class="new">
+                <h2> + </h2>
+                <h5>Add new file</h5>
+            </a>
+
+        </section>
+        <br>
+    </div>

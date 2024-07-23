@@ -1,0 +1,38 @@
+<div class="searchpanel">
+    <br>
+
+        <div class="searchControls">
+            <form>
+                <p class="h4">Collab with others on real-time!</p>
+                <br>
+                <input type="text"
+                id="search-bar"
+                [(ngModel)]="searchVal"
+                name="searchText"
+                placeholder="Search for groups"
+                onkeydown="if(event.keyCode === 13) {
+                    return false;
+                }"
+                #filter>
+            </form>
+
+            <br>
+
+            <a class="addGroupBtn" mat-fab extended (click)="openGroupDialog()">
+                <mat-icon >group_add</mat-icon>
+                Add group
+            </a>
+
+        </div>
+
+        <br>
+        <section class="results" [hidden]="!userservice.isLoggedIn">
+            <app-group *ngFor="let groupId of userservice.currentUser.groupIds"
+            [groupId]="groupId"
+            [searchVal]="searchVal"
+            ></app-group>
+        </section>
+        <br>
+
+    </div>
+

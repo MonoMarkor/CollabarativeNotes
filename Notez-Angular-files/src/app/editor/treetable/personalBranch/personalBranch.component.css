@@ -1,0 +1,36 @@
+
+
+.branch {
+    background-color: var(--navback);
+    color: var(--text);
+    border-radius: 5px;
+    
+}
+.scrollable{
+    max-height: 30vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+.scrollable-group{
+    max-height: 30vh;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+.scrollable-group mat-list-item{
+    height: fit-content;
+    padding-bottom: 1vh;
+}
+.collabHeader{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+.collabHeader p{
+    margin:0;
+}
+
+.pleaves{
+    margin: -5px 0px 0px 0px;
+}

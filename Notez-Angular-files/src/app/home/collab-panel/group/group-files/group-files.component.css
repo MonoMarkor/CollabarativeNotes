@@ -1,0 +1,24 @@
+.listing{
+    background-color: #414141;
+    color: aliceblue;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    min-width: max(7vw,100px);
+}
+.file-heading{
+    padding: 10px 20px 0 20px;
+}
+.link {
+  text-decoration: none;
+}
+.file-link::after {
+  /*content: "\203A";*/
+  margin-left: 5px;
+}
+.file-date{
+  padding-left: 20px;
+  color: bisque;
+  text-decoration: none;
+  font-style: italic;
+  font-weight: 500;
+}

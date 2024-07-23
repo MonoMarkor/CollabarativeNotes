@@ -1,0 +1,6 @@
+
+   .darkmode,.lightmode{
+    min-height: 100vh;
+    background-color: var(--back);
+
+   }

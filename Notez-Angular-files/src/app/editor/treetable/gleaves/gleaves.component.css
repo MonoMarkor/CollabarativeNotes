@@ -1,0 +1,43 @@
+a{
+    text-decoration: none;
+    color: var(--text);
+}
+
+.group_title{
+    text-decoration: none;
+    color: var(--text);
+    cursor:pointer;
+    display: flex;
+    align-items: center;
+}
+.group_title p{
+    margin:0;
+    color: var(--text);
+}
+.group_title button{
+    margin:0;
+    color: var(--text);
+}
+
+.group_title:hover,
+.group_title:hover > *,
+.group_title:hover a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+::ng-deep .mat-mdc-menu-panel.vert_menu{
+  background-color: rgb(0,0,0,0.9);
+}
+::ng-deep .mat-mdc-menu-panel.vert_menu .mat-mdc-menu-item {
+  color: whitesmoke;
+}
+::ng-deep .mat-mdc-menu-panel.vert_menu .mat-mdc-menu-item .mat-icon{
+  color: whitesmoke;
+}
+
+
+
+::ng-deep .mat-spinner circle {
+    stroke: #ff4081; /* Custom stroke color */
+}

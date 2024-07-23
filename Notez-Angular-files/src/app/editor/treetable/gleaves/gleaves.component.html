@@ -1,0 +1,28 @@
+
+        
+<div matListItemTitle class="group_title">
+    <p (click)="group_click()"> {{group.groupName | maxLen}}</p>
+
+    <button mat-icon-button [matMenuTriggerFor]="groupmenu" aria-label="icon-button with a menu" matTooltip="Collaborate with other Users on this file">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu class="vert_menu" #groupmenu="matMenu">
+      <button mat-menu-item (click)="openFileToGroupDialog()">
+        <mat-icon>add_box</mat-icon>
+        <span>Add new File</span>
+      </button>
+      <button mat-menu-item (click)="openMemberDialog()">
+        <mat-icon>person_add</mat-icon>
+        <span>Add new Member</span>
+      </button>
+    </mat-menu>
+</div>
+
+<app-pleaves 
+  *ngFor="let id of group?.serverFileIds"
+  [hidden]="hidden_files"
+  [server_file_id]="id"
+  [fileLocation]="collabedFileLocation"
+>
+</app-pleaves>
+

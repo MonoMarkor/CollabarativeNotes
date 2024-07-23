@@ -1,0 +1,31 @@
+.content {
+  background-color: var(--back);
+  width: 100%;
+  margin-top: 5px;
+}
+
+::placeholder {
+  color: var(--text);
+}
+
+
+.txtContent {
+  height: 80vh;
+  width: 100%;
+  color: var(--text);
+  background-color: var(--back);
+  word-wrap: break-word;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+  font-size: 18px;
+  border-color: var(--text);
+  outline: none;
+  border-radius: 5px;
+  resize: none;
+  
+}
+
+.txtContent:focus,
+.txtContent:hover {
+  background-color: var(--backhover);
+}

@@ -1,0 +1,10 @@
+*{
+    color:aliceblue;
+    margin-top: 0%;
+}
+p a{
+    color:var(--akzent);
+}
+p a:hover{
+    color:var(--akzenth) ;
+}

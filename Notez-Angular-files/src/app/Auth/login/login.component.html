@@ -1,0 +1,35 @@
+<app-header></app-header>
+<div class="background">
+
+<form [formGroup]="loginForm" (ngSubmit)="userLogin()" class="accountForm">
+  <h2>Login</h2>
+    <div>
+      <mat-form-field>
+
+        <input formControlName="username" placeholder="Username" autocomplete="off" required matInput />
+        <mat-error>Enter Username</mat-error>
+        <!--<mat-error *ngIf="username.hasError('userNotAvailable')">Username is already taken</mat-error>-->
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="password" formControlName="password" placeholder="Password" autocomplete="off" required matInput />
+        <mat-error>Enter Password</mat-error>
+
+      </mat-form-field>
+    </div>
+<br>
+
+    <div>
+        <button style="background-color: var(--akzent);color: snow" mat-raised-button type="submit"  [disabled]="!loginForm.valid">Login</button>
+    </div>
+
+    <a routerLink="/home">Home</a>
+    <a routerLink="/signup">Create Account</a>
+
+</form>
+
+</div>
+
+<app-footer></app-footer>
+

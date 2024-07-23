@@ -1,0 +1,22 @@
+
+
+<div class="background">
+
+<h2 style="color:snow" mat-dialog-title>Add a new Member</h2>
+
+<mat-dialog-content class="mat-typography">
+    <p style="color:snow">Enter MemberName!</p>
+    <mat-form-field>
+        <mat-label>Member Name</mat-label>
+        <input 
+            matInput [(ngModel)]="data.new_member_name"
+            #input
+            (keyup)="keyUp$.next(input.value)">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-button style="color: white;" (click)="onNoClick()">Cancel</button>
+    <button mat-button mat-button style="color: black;background-color: white;" [mat-dialog-close]="userId" cdkFocusInitial>Add to Group</button>
+</mat-dialog-actions>
+
+</div>

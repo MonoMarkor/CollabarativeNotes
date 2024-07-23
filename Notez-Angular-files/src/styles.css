@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap");
+
+
+
+
+* {
+  margin: 0px;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+:root{
+    font-family: Poppins, Arial, Helvetica, sans-serif;
+
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+
+  --akzent:#e84855;
+  --akzento:#e8485562;
+  --akzenth:#EE5D5C;  
+  
+  margin: 0px;
+  padding: 0%;
+  box-sizing: border-box;
+
+  .mat-bottom-sheet-container {
+    background: #222831 !important;
+      -ms-overflow-style: none; 
+     -ms-overflow-style: none;  
+    scrollbar-width: none;
+  }
+}
+
+.lightmode{
+  --back:#eef0f2;
+  --backhover: #dadcdb;
+  --text:#040f0f;
+  --menuback: #fcfffc;
+  --menuhover:  #afb6b4;
+  --menutext:  #2d3a3a;
+  --menushadow: rgba(0, 0, 0, 0.5);
+  --button: #afb6b4;
+  --buttonshadow: rgba(50, 30, 30, 0.3);
+  --spbackground:#C1CAD6;
+  --spinput:rgb(0,0,0,0.1);
+  --spcolor:black;
+  --spoutline: black;
+
+  --nav:black;
+  --navback:var(--spbackground)
+  
+}
+.darkmode{
+  --back: #393E46;
+  --backhover: #454e58;
+  --text: snow;
+  --menuback: #001b2e;
+  --menuhover:  #153447;
+  --menutext:  #ffefd3;
+  --menushadow: rgba(0, 0, 0, 0.5);
+  --button: #294c60;
+  --buttonshadow: rgba(41, 76, 96, 0.4);
+  --spbackground:#222831;
+  --spinput:rgb(255,255,255,0.1);
+  --spcolor:aliceblue;
+  --spoutline: white;
+
+  --nav:snow;
+  --navback:var(--spbackground)
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Ensure mat-menu styles are applied */
+/* Ensure mat-menu styles are applied */

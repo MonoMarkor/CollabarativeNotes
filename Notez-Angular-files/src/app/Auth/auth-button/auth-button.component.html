@@ -1,0 +1,10 @@
+
+<a Class="authBtn" routerLink="/login" mat-raised-button
+  [hidden]="cuService.isLoggedIn"
+  style="background-color: var(--akzent);color :snow;"
+ >Login</a>
+ <a Class="authBtn" mat-raised-button
+  [hidden]="!cuService.isLoggedIn"
+  (click)="cuService.logout()"
+  style="background-color: var(--akzent);color :snow;"
+ >Logout</a>

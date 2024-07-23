@@ -1,0 +1,23 @@
+<div class="background" style="background-color:rgb(38, 38, 38);padding: 20px;">
+
+    <div class="loggedIn" [hidden]="!userservice.isLoggedIn">
+        <h2 style="color:snow">{{data.message_a}}</h2>
+        <br>
+
+        <mat-dialog-actions align="center">
+        <button mat-button style="color: rgb(207, 207, 207);background-color: rgb(0, 0, 0);" (click)="logout()">Logout</button>
+        <button mat-button style="color: black;background-color: white;" (click)="signout()">Change User</button>
+        </mat-dialog-actions>
+    </div>
+    <div class="loggedOut" [hidden]="userservice.isLoggedIn">
+        <h2 style="color:snow">{{data.message_a}}</h2>
+        <br>
+
+        <mat-dialog-actions align="center">
+        <button mat-button style="color: rgb(207, 207, 207);background-color: rgb(0, 0, 0);" (click)="login()">Login</button>
+        <button mat-button style="color: black;background-color: white;" (click)="signup()">Create Account</button>
+        </mat-dialog-actions>
+    </div>
+
+
+</div>

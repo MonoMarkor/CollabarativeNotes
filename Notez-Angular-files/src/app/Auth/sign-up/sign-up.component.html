@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="background">
+
+<form [formGroup]="createForm" (ngSubmit)="createAccount()" class="accountForm">
+  <h2>Create an Account</h2>
+    <div>
+      <mat-form-field  >
+        <input formControlName="username" placeholder="Username"  required matInput />
+        <mat-error *ngIf="username.hasError('userNotAvailable') && (username.dirty || username.touched)">Username is already taken</mat-error>
+        <mat-error *ngIf="username.hasError('required') && (username.dirty || username.touched)">Username is required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="password" formControlName="password1" placeholder="Password" required matInput />
+        <mat-error>Password should be Strong</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <input type="password" formControlName="password2" placeholder="Retype Password" required matInput />
+        <mat-error *ngIf="createForm.hasError('passwordsMismatch')">Passwords do not match</mat-error>
+      </mat-form-field>
+    </div>
+<br>
+
+    <div>
+        <button style="background-color: var(--akzent);color: snow" mat-raised-button color="primary" type="submit"  [disabled]="!createForm.valid">Create Account</button>
+    </div>
+
+    <a routerLink="/home">Home</a>
+    <a routerLink="/login">login</a>
+</form>
+
+</div>
+
+<app-footer></app-footer>
+
+
