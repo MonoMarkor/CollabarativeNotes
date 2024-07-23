@@ -2,6 +2,8 @@
 
 This is a full-stack Angular 17 and Node.js application featuring a real-time text editor. The application runs on the same port `8080` using Express.js. It leverages CRDT (Conflict-free Replicated Data Type) data structures to avoid collisions and WebSockets for real-time communication between users. The backend uses MongoDB to store files and user information.
 
+## Made by Ahmad Abeer Ahsan and Moeez Muhammad Ahsan, students at FH Schmalkalden as part of MobileWebDev Project
+
 ## Features
 
 - **Real-Time Collaboration:** Multiple users can edit the same document simultaneously without conflicts, thanks to the CRDT data structure.
@@ -36,6 +38,13 @@ This is a full-stack Angular 17 and Node.js application featuring a real-time te
    cd Node-Angular_Application/src
    node index.js
    ```
+
+   -Access the application:
+   Open your web browser and go to http://localhost:8080.
+
+Contact
+
+For any questions or feedback, please contact us at [moeezahsanmma@gmail.com], [ahmad.abeer11@gmail.com].
 
 # Fontend Files Angular
 
