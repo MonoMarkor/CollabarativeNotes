@@ -34,7 +34,7 @@ This is a full-stack Angular 17 and Node.js application featuring a real-time te
    ```sh
    git clone https://github.com/MonoMarkor/CollabarativeNotes
    cd Node-Angular_Application/src
-   To run: Open terminal and enter: node index.js
+   node index.js
    ```
 
 # Fontend Files Angular
