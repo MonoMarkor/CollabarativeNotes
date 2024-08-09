@@ -2,7 +2,7 @@
 
     <div class="home-link">
         <button mat-icon-button class="home-icon" [routerLink]="['/home']">
-            <mat-icon class="add">home_app_logo</mat-icon>
+            <mat-icon class="home-icon">home_app_logo</mat-icon>
         </button>
         <span class="home-text" [routerLink]="['/home']"> Collaborative Notes</span>
     </div>
@@ -12,11 +12,10 @@
     <div class="control">
 
         <button a [routerLink]="['/editor/']" mat-icon-button class="add" >
-            <mat-icon class="add">add</mat-icon>
+            <mat-icon>add</mat-icon>
         </button>
 
-        <mat-slide-toggle (click)="toggleTheme()"></mat-slide-toggle>
-        <button mat-icon-button [disabled]="true">
+        <button mat-icon-button (click)="toggleTheme()" class="add">
             @if (isDarmode()){
                 <mat-icon>bedtime</mat-icon>
             } @else {

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ɵsetAllowDuplicateNgModuleIdsForTest } from '@angular/core';
 import { File } from '../models/file_model';
 import { Tree } from '../models/tree_model';
 import { Group } from '../models/group_model';
@@ -31,7 +31,7 @@ class FileInfo {
 })
 export class FileStorageService {
   private fileInfo: FileInfo[] = [];
-  public activeFile: File = new File(null, null, '', 0, '');
+  public activeFile: File = new File('', null, '', 0, '');
 
   private groups: Group[] = [];
 
@@ -47,6 +47,20 @@ export class FileStorageService {
       let file = new File('', '', '');
       this.getFileFromServer(this.userService.currentUser.serverFileIds[i], FileLocation.Personal);
     }
+
+    files = this.userService.getFilesFromLocalStrorage(FileLocation.Local);
+    console.log(files);
+    for (let i = 0; i < files.length; i++) {
+      this.addFile(files[i], FileLocation.Local, false);
+      this.userService.localFileIds.push(files[i].localFileId);
+    }
+    console.log(this.getFiles(FileLocation.Local));
+  }
+
+  clearState() {
+    this.fileInfo = [];
+    this.activeFile = new File('', null, '', 0, '');
+    this.groups = [];
   }
 
   getFileByLocalId(id: string): File {
@@ -55,7 +69,7 @@ export class FileStorageService {
         return this.fileInfo[i].file;
       }
     }
-    return new File(null, null, '', 0, '');
+    return new File('', null, '', 0, '');
   }
 
   getFileFromStateStorage(id: string): File {
@@ -64,7 +78,7 @@ export class FileStorageService {
         return this.fileInfo[i].file;
       }
     }
-    return new File(null, null, '', 0, '');
+    return new File('', null, '', 0, '');
   }
 
   getFileFromServer(id: string, fileLocation: FileLocation): Subject<File> {
@@ -142,10 +156,21 @@ export class FileStorageService {
     for (let i = 0; i < this.fileInfo.length; i++) {
       if (this.fileInfo[i].file.localFileId == file.localFileId) {
         this.fileInfo[i].file = file;
-        return;
       }
     }
     this.userService.updateFilesInLocalStorage(this.getFiles(FileLocation.Local), FileLocation.Local);
+  }
+
+  getLocalFileIds(): string[] {
+    let localIds: string[] = [];
+
+    for (let i = 0; i < this.fileInfo.length; i++) {
+      if (this.fileInfo[i].fileLocation == FileLocation.Local) {
+        localIds.push(this.fileInfo[i].file.localFileId);          
+      }
+    }
+
+    return localIds;
   }
 
   updateServerFile(file: File) {
@@ -160,6 +185,9 @@ export class FileStorageService {
 
   addFile(file: File, fileLocation: FileLocation, updateLocalDB: boolean) {
     for (let i = 0; i < this.fileInfo.length; i++) {
+      if (fileLocation == FileLocation.Local) {
+        break;
+      }
       if ((this.fileInfo[i].file.serverFileId == file.serverFileId ||
         this.fileInfo[i].file.localFileId == file.localFileId) &&
         this.fileInfo[i].file.version != file.version

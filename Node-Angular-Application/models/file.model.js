@@ -30,7 +30,10 @@ class File {
         const query = {
             _id: ObjectID.createFromHexString(this.serverFileId)
         };
-        const result = await files.findOne(query);
+        let result;
+        if (this.serverFileId.length == 24) {
+            result = await files.findOne(query);
+        }
         //console.log(result);
         if(result) {
             this.localFileId = result.localFileId;

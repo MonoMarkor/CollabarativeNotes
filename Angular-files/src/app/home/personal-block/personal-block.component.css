@@ -1,0 +1,64 @@
+
+.personalContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content; /* Full viewport height */
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--back); /* Light background color for the entire container */
+    overflow-x: hidden;
+    -ms-overflow-style: none; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+    max-height: 70vh;
+    min-height: 70vh;
+}
+
+.searchControls {
+    padding: 20px;
+    background-color: var(--back); /* Slightly transparent background */
+    align-items: center;
+    text-align: center;
+}
+
+.searchControls form {
+    align-items: center;
+}
+
+
+input[type="text"] {
+  border: solid 1px var(--text);
+  background-color: var(--backhover);
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: 4px;
+  /*display: inline-block;*/
+  width: 50vw;
+  color: var(--text);
+  font-family: Poppins;
+  outline: var(--text);
+  font-size: calc(10px + 1vh);
+  transition: 0.1s ease-out;
+}
+
+
+
+
+
+
+.personalFilesContainer {
+  max-height: 55vh;
+  min-height: fit-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center; /* Center-align items horizontally */
+  padding: 16px; /* Optional: Add padding around the container */
+  overflow-x: auto;
+  -ms-overflow-style: none; 
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+
+
+
+

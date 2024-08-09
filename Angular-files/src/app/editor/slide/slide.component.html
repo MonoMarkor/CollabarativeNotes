@@ -28,9 +28,9 @@
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu" matTooltip="Menu">
   <mat-icon>more_vert</mat-icon>
 </button>
-<mat-menu class="vert_menu" #menu="matMenu">
-<button mat-menu-item routerLink="">
-  <mat-icon class="menuicon">home</mat-icon>
+<mat-menu class="vert_menu" #menu="matMenu" >
+<button mat-menu-item routerLink="" >
+  <mat-icon>home</mat-icon>
   <span>Home</span>
 </button>
 <button mat-menu-item (click)="changeTheme()">

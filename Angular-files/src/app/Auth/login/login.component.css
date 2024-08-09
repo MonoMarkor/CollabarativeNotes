@@ -1,5 +1,6 @@
 .background{
   background-color: var(--back);
+      box-shadow: 0px 0px 1px 1px rgb(230, 229, 236);
   min-height: 80vh;
   width: 100%;
   padding-top: 10vh;
@@ -13,9 +14,10 @@
     padding: 20px;
     background-color: var(--spbackground);
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 1px 1px rgb(230, 229, 236);
     font-family: 'Roboto', sans-serif;
   }
+
 
   .accountForm h2 {
     text-align: center;

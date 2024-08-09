@@ -1,10 +1,10 @@
 
 <a Class="authBtn" routerLink="/login" mat-raised-button
   [hidden]="cuService.isLoggedIn"
-  style="background-color: var(--akzent);color :snow;"
+  style="background-color: var(--nav);color: var(--navtext);;"
  >Login</a>
  <a Class="authBtn" mat-raised-button
   [hidden]="!cuService.isLoggedIn"
-  (click)="cuService.logout()"
-  style="background-color: var(--akzent);color :snow;"
+  (click)="cuService.logout(); fileStorageService.clearState()"
+  style="background-color: var(--nav);color: var(--navtext);;"
  >Logout</a>

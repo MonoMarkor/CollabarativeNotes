@@ -1,0 +1,21 @@
+<section *ngIf="(group.groupName | filterText: searchVal) | isVisible" class="group_area">
+<button class="groupLabelButton" (click)="groupLabelClicked()">
+    <mat-icon class="ign">folder_shared</mat-icon>
+    <p class="pgn">{{group.groupName}}</p>
+</button>
+
+            <button mat-icon-button [matMenuTriggerFor]="groupmenu" aria-label="icon-button with a menu" class="vert_btn">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu class="vert_menu" #groupmenu="matMenu" style="background-color: var(--akzent) !important;">
+                <button (click)="openFileToGroupDialog()" mat-menu-item>
+                    <mat-icon style="color: var(--menutext);" >add_box</mat-icon>
+                    <span class="item" style="color: var(--menutext);">Add new File</span>
+                </button>
+                <button mat-menu-item (click)="openMemberDialog()">
+                    <mat-icon style="color: var(--menutext);">person_add</mat-icon>
+                    <span class="item" style="color: var(--menutext);">Add new Member</span>
+                </button>
+            </mat-menu>
+
+</section>

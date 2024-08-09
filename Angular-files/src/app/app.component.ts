@@ -44,11 +44,6 @@ export class AppComponent implements OnInit {
     );
   }
 
-  /*currentMode = {
-    lightmode: false,
-    darkmode: true,
-  };*/
-
   ngOnInit(): void {
     if (!localStorage.getItem('lightMode')) {
       // Initialize theme based on system preference

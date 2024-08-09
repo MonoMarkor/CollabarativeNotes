@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UsersService } from '../../services/users.service';
+import { FileStorageService } from '../../services/file-storage.service';
 
 @Component({
   selector: 'app-auth-button',
@@ -13,5 +14,5 @@ import { UsersService } from '../../services/users.service';
   //encapsulation:ViewEncapsulation.None,
 })
 export class AuthButtonComponent {
-  constructor(public cuService: UsersService) {}
+  constructor(public cuService: UsersService, public fileStorageService: FileStorageService) {}
 }

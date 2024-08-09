@@ -52,7 +52,6 @@ export interface AccountDialogData {
   templateUrl: './slide.component.html',
   styleUrl: './slide.component.css',
 })
-
 export class SlideComponent {
   thememode: string = 'lightmode';
 
@@ -79,6 +78,7 @@ export class SlideComponent {
   openBtn() {
     this.openFile.emit();
   }
+
   saveBtn() {
     this.save.emit();
   }
@@ -95,16 +95,15 @@ export class SlideComponent {
     this.themeService.toggleTheme();
   }
 
-  manageAccount(){
-    this.dialog.open(AccountDialog,{
-      data:{message_a: "Manage Acoount"}
+  manageAccount() {
+    this.dialog.open(AccountDialog, {
+      data: { message_a: 'Manage Acoount' },
     });
   }
 
   resetActiveFile() {
     this.fileStorage.activeFile = new File('', '', '');
   }
-
 }
 
 //--------- dialogs components

@@ -17,7 +17,6 @@ import { FileStorageService, FileLocation } from '../../../services/file-storage
 
 
 
-
 @Component({
   selector: 'app-personalBranch',
   standalone: true,

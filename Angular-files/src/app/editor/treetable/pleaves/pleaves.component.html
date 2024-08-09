@@ -1,6 +1,7 @@
-<a *ngIf="file.fileName" matListItemTitle
-    [routerLink]="['/editor', file.serverFileId]">
+<a *ngIf="file.fileName" matListItemTitle [routerLink]="['/editor', file.serverFileId]">
+           <mat-divider></mat-divider>
        <p>
         {{file.fileName | maxLen}}
        </p> 
+
 </a>

@@ -14,7 +14,6 @@ import { AccountDialog, SlideComponent } from './slide/slide.component';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CommonModule} from '@angular/common';
 import { FilesService } from '../services/files.service';
-import { OpenComponent } from './slide/open/open.component';
 import { switchMap,Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +40,6 @@ import { MatListModule } from '@angular/material/list';
   standalone: true,
   imports: [
     SlideComponent,
-    OpenComponent,
     CommonModule,
     FormsModule,
     PersonalBranchComponent,
@@ -86,20 +84,21 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
     this.route.params.subscribe((params) => {
       if(params['id']) {
         this.id = params['id'];
+        this.isnewfile = false;
       }
       console.log('params.id: ', this.id);
-      //if(this.id.length > 23) {
+      if(this.id.length == 24) {
         this.fileStorageService.activeFile = this.fileStorageService.getFileFromStateStorage(this.id);
-      //}
+      }
       console.log(this.fileStorageService.activeFile);
       if (!this.fileStorageService.activeFile.fileName && this.id.length == 24) {
         console.log('params.id2: ', this.id);
         this.fileStorageService.getFileFromServer(this.id, FileLocation.PersonalOrCollabed).subscribe(
           file => this.fileStorageService.activeFile = file
-        );
-      }
-      if (this.id) {
-        this.isnewfile = false;
+        )
+      } else if(this.id && this.id.length != 24) {
+        console.log('local.id: ', this.id);
+        this.fileStorageService.activeFile = this.fileStorageService.getFileByLocalId(this.id);
       }
     });
   }
@@ -117,9 +116,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnDestroy(): void {
-    /*if (this.activity == false) {
-      this.fileservice.deleteFileById(this.newFile.id);
-    }*/
+
     console.log('closing file');
   }
 
@@ -141,7 +138,6 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
     } else {
       this.resetValues();
     }
-    this.openPanel = false;
     console.log('content updated');
   }
 
@@ -155,24 +151,27 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   saveBtn():void{
-    if (this.isnewfile && this.fileStorageService.activeFile.fileName && this.userService.isLoggedIn) {
-      this.addFileToServer(this.fileStorageService.activeFile.fileName);
-    } else if (!this.isnewfile && this.fileStorageService.activeFile.fileName && this.userService.isLoggedIn) {
-      this.fileStorageService.activeFile.fileName = this.fileStorageService.activeFile.fileName;
-      this.updateFileToServer(this.fileStorageService.activeFile);
+    if (this.fileStorageService.activeFile.fileName) {
+      if (this.userService.isLoggedIn) {
+        if (this.isnewfile) {
+          this.addFileToServer(this.fileStorageService.activeFile.fileName);
+        } else {
+          this.updateFileToServer(this.fileStorageService.activeFile);
+        }
+      } else {
+        if (this.isnewfile) {
+          this.addFileToLocalStorage(this.fileStorageService.activeFile);
+        } else {
+          this.updateFileInLocalStorage(this.fileStorageService.activeFile);
+        }
+      }
     }
-    /*if(this.userservice.isLoggedIn){
-      this.saveFile()
-    }else{
-      this.dialog.open(AccountDialog, {
-        data: { message_a:'Login to Save Online!' },
-      });
-    }*/
   }
 
   addFileToServer(fileName: string) {
     console.log('editor: addFileToServer()');
     this.fileStorageService.activeFile.fileName = fileName;
+    this.fileStorageService.activeFile.localFileId = Date.now().toString();
     this.fileService.createFile(this.fileStorageService.activeFile).subscribe({
       next: (file) => {
         if (file.serverFileId) {
@@ -212,6 +211,15 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
         }
       }
     })
+  }
+
+  addFileToLocalStorage(file: File) {
+    file.localFileId = Date.now().toString();
+    this.userService.localFileIds.push(file.localFileId);
+    this.fileStorageService.addFile(file, FileLocation.Local, true);
+  }
+  updateFileInLocalStorage(file: File) {
+    this.fileStorageService.updateLocalFie(file);
   }
 
   saveFile(): void {}
@@ -279,17 +287,7 @@ export class EditorComponent implements OnInit, AfterViewInit, OnChanges {
     });  
   }
 
-  openPanel: boolean = false;
-  showOpenPanel() {
-    this.openPanel = !this.openPanel;
-  }
-  isPopupVisible = false;
-  showPopup(): void {
-    this.openPanel = true;
-  }
-  closePopup(event: Event): void {
-    this.openPanel = false;
-  }
+
 }
 
 @Component({

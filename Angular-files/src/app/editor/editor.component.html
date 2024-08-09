@@ -1,8 +1,6 @@
 
 
 <body>
-  <!--<app-nav-editor></app-nav-editor>-->
-  <!--<app-nav-editor2></app-nav-editor2>-->
 
       <app-slide 
         (openFile)="openBottomSheet()"
@@ -11,9 +9,9 @@
         (uploadFile)="uploadFile()">
       </app-slide>
 
+
       <div class="branchAndFile">
         <div class="branch">
-          <!--<app-treetable [personal_server_file_ids]="['6682a3365fd2fdc459995a1a']"></app-treetable>-->
           <app-personalBranch></app-personalBranch>
         </div>
 
@@ -30,7 +28,7 @@
               />
               &nbsp;
             </div>
-
+              
             <file [id]="id" class="content "></file>
             <br>
 
@@ -41,12 +39,5 @@
 
 <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
 
-<div class="overlay" *ngIf="openPanel" (click)="closePopup($event)">
-  <app-open (click)="$event.stopPropagation()" ></app-open>
-</div>
-  
-
-      
- 
 </body>
 

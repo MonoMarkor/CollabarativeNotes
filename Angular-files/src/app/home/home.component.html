@@ -1,11 +1,44 @@
-<app-header></app-header>
+<div class="acting-body">
+  <app-header></app-header>
 
-<app-home-panel></app-home-panel>
+  <mat-divider></mat-divider>
 
-<app-search-panel></app-search-panel>
+  <div @fadeInOut>
+      <app-home-panel></app-home-panel>
+  </div>
 
-<app-collab-panel></app-collab-panel>
+  <mat-divider></mat-divider>
+
+  <mat-tab-group>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">folder</mat-icon>
+          <p>Local Files</p>
+        </ng-template>
+        <app-personal-block [fileLocation]="localFileLocation"></app-personal-block>
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">person</mat-icon>
+          <p>Personal Files</p>
+        </ng-template>
+        <app-personal-block [fileLocation]="personalFileLocation"></app-personal-block>
+      </mat-tab>
+    
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon">groups</mat-icon>
+          <p>Groups</p>
+        </ng-template>
+        <app-group-block></app-group-block>
+      </mat-tab>
+    </mat-tab-group>
+
+    <mat-divider></mat-divider>
+
+  <app-footer class="app-footer-c"></app-footer>
+</div> 
 
 
-<app-footer></app-footer>
 

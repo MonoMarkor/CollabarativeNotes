@@ -99,16 +99,12 @@ export class GleavesComponent {
                   if (message2.success) {
                     //this.userService.currentUser.groupIds.push(this.groupId);
                     this.userService.updateUserInLocalStorage();
-                  } else {
-                    alert('message2.success == false')
                   }
                 },
                 error: (err) => {
                   alert('failed to add group to user');
                 }
               })
-            } else {
-              alert('message.success == false')
             }
           },
           error: (err) => {

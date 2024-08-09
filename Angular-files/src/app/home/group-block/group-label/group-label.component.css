@@ -1,0 +1,43 @@
+.group_area{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.groupLabelButton {
+    display: flex;
+    background-color: var(--backhover);
+    border: 0px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+    box-sizing: border-box;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 3rem;
+    padding: .5rem;
+    min-width: 9rem;
+    align-items: center;
+}
+
+.ign {
+    padding-right: 5px;
+}
+.pgn {
+    margin: 0;
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+.vert_btn{
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text);
+}
+
+::ng-deep .vert_menu{
+    background-color: var(--akzent) !important;
+}

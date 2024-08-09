@@ -1,5 +1,4 @@
 import { Component , Inject, OnInit, ViewEncapsulation} from '@angular/core';
-import { GroupComponent } from './group/group.component';
 import { FilesService } from '../../services/files.service';
 import { Group } from '../../models/group_model';
 import { CommonModule } from '@angular/common';
@@ -30,77 +29,6 @@ export interface AddMemberDialogData {
 }
 export interface AddFileToGroupDialogData{
   new_file_name:string;
-}
-
-@Component({
-  selector: 'app-collab-panel',
-  standalone: true,
-  imports: [
-    GroupComponent,
-    CommonModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatInputModule,
-  ],
-  templateUrl: './collab-panel.component.html',
-  styleUrl: './collab-panel.component.css',
-})
-export class CollabPanelComponent {
-  constructor(
-    fileservice: FilesService,
-    public fileStorageService: FileStorageService,
-    public dialog: MatDialog,
-    public userservice: UsersService
-  ) {
-  }
-
-  new_group_name!: string;
-  searchVal: string = '';
-
-  printNewGroup(): void {
-    console.log(this.new_group_name);
-  }
-
-  openGroupDialog(): void {
-    if (this.userservice.isLoggedIn) {
-      let dialogRef = this.dialog.open(AddGroupDialog, {
-        data: { name: this.new_group_name },
-      });
-
-      dialogRef.afterClosed().subscribe((result) => {
-        console.log(`Add Group Dialog was closed`);
-        this.new_group_name = result;
-        if (this.new_group_name) {
-          this.printNewGroup();
-          this.userservice.createGroup(new Group('', this.new_group_name, [this.userservice.currentUser.userId])).subscribe({
-            next: (group) => {
-              if (group.groupId) {
-                this.fileStorageService.addGroup(group);
-                this.userservice.addGroupToUser(this.userservice.currentUser.userId, group.groupId).subscribe({
-                  next: (message) => {
-                    if (message.success) {
-                      this.userservice.currentUser.groupIds.push(group.groupId);
-                      this.userservice.updateUserInLocalStorage();
-                    } else {
-                      alert('Failed to add Group to User');
-                    }
-                  }
-                })
-              } else {
-                alert('Group could not be created');
-              }
-            }
-          });
-        }
-      });
-    } else {
-      this.dialog.open(AccountDialog, {
-        data: { message_a: 'Login to Collab!' },
-      });
-    }
-  }
 }
 
 @Component({

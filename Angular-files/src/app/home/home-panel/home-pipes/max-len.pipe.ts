@@ -9,6 +9,6 @@ export class MaxLenPipe implements PipeTransform {
    if (!value || value.trim() === '') {
      return 'Untitled';
    }
-    return value.length > 12 ? value.substring(0, 12) +"..." : value;
+    return value.length > 12 ? value.substring(0, 12) +".." : value;
   }
 }

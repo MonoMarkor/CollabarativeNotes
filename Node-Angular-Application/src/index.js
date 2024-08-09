@@ -1,14 +1,10 @@
 let express = require('express');
-//let bodyParser = require('body-parser');
-let cors=require('cors');
 const path = require('path')
 
 let app = express();
 
 //middleware
 app.use(express.static(__dirname + '/public'));
-//app.use(express.static('C:/Users/ahmad/Desktop/Angular/Notez/dist/notez/browser'));
-//app.use(cors());
 app.use(express.json());
 function logger(req, res, next) {
     console.log(req.url, '\n', req.method, '\n', req.params, '\n', req.query);
@@ -27,7 +23,7 @@ const WebSocket = require("ws");
 
 const wsServer = new WebSocket.Server({
     noServer: true
-})                                      // a websocket server
+});                                      // a websocket server
 
 wsServer.on("connection", function(ws) {    // what should a websocket do on connection
     ws.on("message", function(msg) {        // what to do on message event
@@ -36,17 +32,11 @@ wsServer.on("connection", function(ws) {    // what should a websocket do on con
             if (client.readyState === WebSocket.OPEN) {     // check if client is ready
               client.send(msg.toString());
             }
-        })
-    })
-})
+        });
+    });
+});
 
 myServer.on('upgrade', async function upgrade(request, socket, head) {      //handling upgrade(http to websocekt) event
-
-    // accepts half requests and rejects half. Reload browser page in case of rejection
-    //if(Math.random() > 0.5){
-    //    return socket.end("HTTP/1.1 401 Unauthorized\r\n", "ascii")     //proper connection close in case of rejection
-    //}
-    
     //emit connection when request accepted
     wsServer.handleUpgrade(request, socket, head, function done(ws) {
       wsServer.emit('connection', ws, request);

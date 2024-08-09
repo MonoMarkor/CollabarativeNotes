@@ -1,0 +1,36 @@
+<div class="mainContainer">
+    <div class="searchControls">
+        <form>
+                <input type="text"
+                id="search-bar"
+                [(ngModel)]="searchVal"
+                name="searchText"
+                placeholder="Search for groups"
+                onkeydown="if(event.keyCode === 13) {
+                    return false;
+                }"
+                #filter>
+        </form>
+
+    </div>
+
+    <div class="groupBlock">
+        <div class="groupLabels">
+            <app-group-label
+                *ngFor="let groupId of userService.currentUser.groupIds"
+                [groupId]="groupId"
+                [searchVal]="searchVal"
+                (gClicked)="displayGroupFiles($event)">
+            </app-group-label>
+        </div>
+        <div class="blockContainer">
+            <div class="groupFilesContainer">
+                <app-home-files
+                    *ngFor="let serverFileId of displayedGroup.serverFileIds | sortByDate:'updatedAt'"
+                    [fileId]="serverFileId"
+                    [fileLocation]="groupFileLocation">
+                </app-home-files>
+            </div>
+        </div>
+    </div>
+</div>

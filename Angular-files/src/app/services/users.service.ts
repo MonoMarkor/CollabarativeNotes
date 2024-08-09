@@ -29,9 +29,13 @@ export class UsersService {
   isLoggedIn: boolean = false;
 
   currentUser: User = new User('', '', '');
-
+  localFileIds: string[] = [];
   getUsername():string{
     return this.currentUser.username
+  }
+
+  getLocalFileIds(): string[] {
+    return this.localFileIds;
   }
 
   logout(): void {

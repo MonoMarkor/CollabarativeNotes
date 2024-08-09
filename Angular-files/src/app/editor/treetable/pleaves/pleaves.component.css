@@ -7,8 +7,9 @@ a {
 }
 a p{
     text-decoration: none;
-    color: var(--text);
-
+    color: var(--menutext);
+    font-style: italic;
+    padding-left: 10px;
 }
 
 ::ng-deep .mat-spinner circle {

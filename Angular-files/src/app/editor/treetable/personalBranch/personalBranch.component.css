@@ -1,8 +1,8 @@
 
 
 .branch {
-    background-color: var(--navback);
-    color: var(--text);
+    background-color: var(--akzent);
+    color: var(--menutext);
     border-radius: 5px;
     
 }

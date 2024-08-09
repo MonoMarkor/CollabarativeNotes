@@ -9,6 +9,9 @@
     "test": "ng test",
     "serve:ssr:Notez": "node dist/notez/server/server.mjs"
   },
+  "scarfSettings": {
+    "enabled": false
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",

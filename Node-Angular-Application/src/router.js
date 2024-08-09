@@ -31,17 +31,8 @@ module.exports = function(app) {
     app.route('/files/:server_file_id')
         .get(fileController.getSingleFileAction);
 
-    /*
-    app.route('/')  //replace middleware 'app.use(express.static(__dirname + '/public'));' with route when bug found
-        .get((req, res) => {
-            res.writeHead(200, {'Content-Type': 'text/html'});
-            res.sendFile(__dirname + '/browser/chunk-E4IKENG7.js');
-            res.sendFile(__dirname + '/browser/chunk-QFWVC2MQ.js');
-            res.sendFile(__dirname + '/browser/favicon.ico');
-            res.sendFile(__dirname + '/browser/index.html');
-            res.sendFile(__dirname + '/browser/main-VEA4BIHY.js');
-            res.sendFile(__dirname + '/browser/polyfills-6EAL64PA.js');
-            res.sendFile(__dirname + '/browser/styles-QU3GNN4H.css');
-        });
-    */
+    app.get('*', (req, res) => {
+        console.log(req.path);
+        res.sendFile(__dirname + '/public/index.html')
+    });
 }

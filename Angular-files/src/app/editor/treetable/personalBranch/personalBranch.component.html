@@ -28,6 +28,7 @@
         <div *ngIf="showGleaves" class="scrollable-group" [hidden]="!userservice.isLoggedIn">
             <mat-list-item *ngFor="let groupId of userservice.currentUser.groupIds">
                 <app-gleaves [groupId]="groupId" ></app-gleaves>
+                <mat-divider></mat-divider>
             </mat-list-item>
         </div>
         

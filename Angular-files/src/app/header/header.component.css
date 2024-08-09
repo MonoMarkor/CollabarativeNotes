@@ -1,8 +1,9 @@
 mat-toolbar {
   justify-content: space-between;
   padding: 0 2rem;
-  color: var(--nav);
-  background-color: var(--navback);
+  background: linear-gradient(90deg, var(--nav) 0%, var(--primary) 100%);
+  
+  
 
   .control {
     display: flex;
@@ -16,28 +17,33 @@ mat-toolbar {
 
   app-auth-button{
     margin-left: 10px;
+    
   }
 
-  mat-icon{
-    color: var(--nav);
-  }
 
   .home-link {
     cursor: pointer;
     text-decoration: none;
+    display: flex;
+    align-items: center;  /* Align items vertically (if needed) */
+    justify-content: flex-start;  /* Align items horizontally, adjust as necessary */
+    gap: 10px;  /* Optional: Add space between the button and the span */
   }
 
   .home-link:hover {
     text-decoration: none;
   }
   .home-icon{
-     background-color:var(--akzent);
-     color: snow;
+    background-color:var(--primary);
+    color: var(--navtext);
+  }
+  .home-text{
+    color: var(--text);
   }
 
   .add{
-     background-color:var(--akzent);
-     color: snow;
+     background-color:var(--nav);
+    color: var(--navtext);
   }
 
 }

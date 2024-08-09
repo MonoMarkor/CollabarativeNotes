@@ -4,6 +4,24 @@
   box-sizing: border-box;
 }
 
+.example-tab-icon{
+  color: var(--text);
+}
+
+p{
+    color: var(--text);
+}
+
+.acting-body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.app-footer-c {
+  margin-top: auto;
+}
 
 
 

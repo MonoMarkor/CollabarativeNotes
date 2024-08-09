@@ -1,7 +1,7 @@
 import { Tree } from './tree_model';
 
 export class File {
-  public localFileId: string | null;
+  public localFileId: string;
   public serverFileId: string | null;
   public fileName: string;
   public version: number;
@@ -9,7 +9,7 @@ export class File {
   public tree: Tree;
 
   constructor(
-    localFileId: string | null,
+    localFileId: string,
     serverFileId: string | null,
     fileName: string,
     version: number = 0,

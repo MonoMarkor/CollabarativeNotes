@@ -16,7 +16,7 @@ body {
   display: flex;
 }
 .branch{
-  margin-top: min(110px,10.5vh);
+  margin-top: min(120px,11.4vh);
   margin-bottom: 0px;
   padding: 0 0 0 0;
   padding-top: 0;
@@ -63,6 +63,7 @@ body {
   width: 100%;
   padding: 0px 0px 0px 0px;
   border-radius: 0%;
+  margin-top: 5px;
 }
 .txtHeader {
   margin: 0px 0px 0px 0px;

@@ -1,0 +1,70 @@
+
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    min-height: 70vh;
+    background-color: var(--back);
+}
+
+.searchControls {
+    padding: 20px;
+    background-color: var(--back); /* Slightly transparent background */
+    align-items: center;
+    text-align: center;
+}
+
+.searchControls form {
+    align-items: center;
+}
+
+input[type="text"] {
+  border: solid 1px var(--text);
+  background-color: var(--backhover);
+  padding: 10px;
+  border-radius: 8px;
+  margin-left: 4px;
+  width: 50vw;
+  color: var(--text);
+  font-family: Poppins;
+  outline: var(--text);
+  font-size: calc(10px + 1vh);
+  transition: 0.1s ease-out;
+}
+
+.groupBlock {
+    display: flex;
+    flex: 1; /* Takes up the remaining space after search controls */
+    max-height: 55vh; /* Full height of the remaining space */
+    min-height: fit-content; /* Full height of the remaining space */
+    -ms-overflow-style: none; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+.groupLabels {
+    min-width: none;
+    min-width: fit-content;
+    background-color: var(--backhover);
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    -ms-overflow-style: none; 
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+.blockContainer {
+    flex-grow: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.groupFilesContainer {
+    display: flex;
+    flex-wrap: wrap; /* Allows files to wrap to the next line if there are too many */
+    gap: 10px;
+    overflow-y: auto;
+}

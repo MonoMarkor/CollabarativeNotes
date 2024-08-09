@@ -1,0 +1,11 @@
+<div *ngIf="(file.fileName | filterText: searchVal) | isVisible" [ngStyle]="{ 'display': getDisplayStyle() }"  class="link" >
+    <section class="listing" [routerLink]="['/editor', link]">
+        
+        <div class="file-heading">
+            <mat-icon>description</mat-icon>
+            <h2>{{file.fileName| maxLen}}</h2>
+        </div>
+    </section>
+</div>
+
+

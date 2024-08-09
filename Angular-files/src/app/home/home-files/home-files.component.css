@@ -1,0 +1,35 @@
+.listing{
+  background-color: var(--file);
+  color: var(--menutext);
+  border-radius: 5px;
+  padding: 2px;
+  border: solid;
+  border-width: 1px;
+  border-color: var(--menutext);
+  margin: 3px;
+  cursor: pointer;
+}
+
+.file-heading{
+  padding: 10px 25px 10px 15px;
+  white-space: nowrap;
+  color: var(--menutext);
+  display: flex;
+  align-items:center;
+  text-decoration: none;
+}
+
+.file-heading h2{
+  padding-left: 5px;
+  margin: 0;
+  font-size: calc(12px + 0.5vh);
+  min-width: calc(14ch);
+}
+
+.link {
+text-decoration: none;
+display: block;
+width: fit-content;
+}
+
+

@@ -1,0 +1,38 @@
+<div class="personalContainer">
+    <div class="searchControls">
+        <form>
+
+            <input type="text"
+                id="search-bar"
+                placeholder="Search for Notes"
+                [(ngModel)]="tosearch"
+                name="searchText"
+                onkeydown="if(event.keyCode === 13) {
+                return false;
+                }"
+                #filter>
+        </form>
+
+    </div>
+
+    <div *ngIf="fileLocation == personalFileLocation" class="personalFilesContainer">
+        <app-home-files
+            *ngFor="let serverFileId of userService.currentUser.serverFileIds | sortByDate:'updatedAt'"
+            [fileId]="serverFileId"
+            [fileLocation]="fileLocation"
+            [searchVal]="tosearch"
+            (nameEvent)="setname($event)">
+        </app-home-files>
+    </div>
+
+    <div *ngIf="fileLocation == localFileLocation" class="personalFilesContainer">
+        <app-home-files
+            *ngFor="let localFileId of userService.getLocalFileIds() | sortByDate:'updatedAt'"
+            [fileId]="localFileId"
+            [fileLocation]="fileLocation"
+            [searchVal]="tosearch"
+            (nameEvent)="setname($event)">
+        </app-home-files>
+    </div>
+</div>
+

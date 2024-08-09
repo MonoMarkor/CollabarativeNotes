@@ -1,18 +1,48 @@
-<div class="panel">
-        <div class="panelheadings">
-            <p class="h1">Write, Save n Share</p>
-            <p class="h4">Make your Collaborative Notes now!</p>
-        </div>
-    
-        <!--<button routerLink="/editor" type="button" class="new">
-            <span>Los gehts!</span>
-        </button>-->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Write, Save & Share</h1>
+    <p>Make your Collaborative Notes now!</p>
+    <a mat-fab extended color="accent" routerLink="/editor">
+      <mat-icon>add_box</mat-icon>
+      Add New File
+    </a>
+  </div>
+  <div class="hero-image">
+    <img src="assets/typing.jpg" alt="Person typing on a laptop">
+  </div>
+</div>
 
-        <!--<a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>-->
+<div class="features">
+  <div class="feature">
+    <mat-icon>edit</mat-icon>
+    <h2>Easy Editing</h2>
+    <p>Create and edit your notes with our intuitive interface.</p>
+  </div>
+  <div class="feature">
+    <mat-icon>cloud</mat-icon>
+    <h2>Save to Cloud</h2>
+    <p>Write anywhere anytime.</p>
+  </div>
+  <div class="feature">
+    <mat-icon>share</mat-icon>
+    <h2>Collaboration</h2>
+    <p>Share your notes and work together in real-time.</p>
+  </div>
+</div>
 
-        <a class="addBtn" mat-fab extended routerLink="/editor">
-          <mat-icon >add_box</mat-icon>
-          Let's Go
-        </a>
-      
-    </div>
+<div class="collab-panel">
+  <div class="collab-content">
+    <h2>Make a Group to Collab with Others</h2>
+    <p>Create a collaborative workspace and invite your team members to boost productivity.</p>
+    <a mat-fab extended color="accent" (click)="openGroupDialog()">
+      <mat-icon>group_add</mat-icon>
+      Create a Group
+    </a>
+  </div>
+  <div class="collab-image">
+    <img src="assets/collabing.jpg" alt="Team collaboration">
+  </div>
+</div>
+
+
+

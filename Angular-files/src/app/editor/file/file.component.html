@@ -1,12 +1,25 @@
 <div class="content">
-
-  <textarea id="textArea1" class="txtContent"
+  <textarea
+    id="textArea1"
+    class="txtContent"
     #textArea1
     [value]="fileStorage.activeFile.Content()"
-    (input)="textArea1.value = fileStorage.activeFile.Content(); textArea1.setSelectionRange(cursorPosition, cursorPosition);"
-    (keydown)="onKeyDown(textArea1.selectionStart, $event); print('keyPressed');"
-    (change)="print('changed');textArea1.setSelectionRange(cursorPosition, cursorPosition);"
-    autocomplete="off"
+    (input)="
+      onKeyDown(textArea1.selectionStart - 1, textArea1.selectionEnd, $event);
+      textArea1.value = fileStorage.activeFile.Content();
+      textArea1.setSelectionRange(cursorPosition, cursorPosition)
+    "
+    (paste)="
+      print('Paste event:');
+      print($event);
+      onPaste($event, textArea1.selectionStart)
+    "
+    (change)="
+      print('changed');
+      textArea1.setSelectionRange(cursorPosition, cursorPosition)
+    "
+    [autocapitalize]="false"
+    [autocomplete]="false"
+    [spellcheck]="false"
   ></textarea>
- 
 </div>
